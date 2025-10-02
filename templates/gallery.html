@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - ReelixAI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container gallery-container">
+    <h1 class="gallery-title">Reel Gallery</h1>
+    <div class="gallery-grid">
+        {% for reel in reels %}
+        <div class="gallery-item">
+            <video src="{{ url_for('static', filename='reels/' ~ reel) }}" controls></video>
+            <p class="reel-name">{{ reel }}</p>
+            
+            
+            <form action="{{ url_for('delete_reel', reel_name=reel) }}" method="POST" onsubmit="return confirm('Delete this reel?');">
+             <button type="submit" class="btn">🗑 Delete</button>
+            </form>
+            
+           
+
+           
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

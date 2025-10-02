@@ -1,0 +1,9 @@
+flask
+gunicorn
+werkzeug
+ffmpeg-python
+requests
+python-dotenv
+Flask==2.3.3
+Werkzeug==2.3.7
+elevenlabs==0.2.21
